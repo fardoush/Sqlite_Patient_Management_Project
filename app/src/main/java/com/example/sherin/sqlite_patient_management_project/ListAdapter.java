@@ -19,7 +19,7 @@ public class ListAdapter extends BaseAdapter {
     private Context context;
     private List<Patient> patientList;
 
-    public ListAdapter(Context context, List<Patient> studentList) {
+    public ListAdapter(Context context, List<Patient> patientList) {
         this.context = context;
         this.patientList = patientList;
     }
@@ -49,9 +49,9 @@ public class ListAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.sample_layout, null);
         }
 
-        final TextView name, add, number,admit,issu;
+        final TextView name, _add_, number,admit,issu;
         name = convertView.findViewById(R.id.tv_name);
-        add = convertView.findViewById(R.id.tv_add);
+        _add_ = convertView.findViewById(R.id.tv_add);
         number = convertView.findViewById(R.id.tv_number);
         admit = convertView.findViewById(R.id.tv_admit);
         issu = convertView.findViewById(R.id.tv_issu);
@@ -59,7 +59,7 @@ public class ListAdapter extends BaseAdapter {
 
 
         name.setText(patientList.get(position).getId() + " , " + patientList.get(position).getName());
-        add.setText(patientList.get(position).getAdd());
+        _add_.setText(patientList.get(position).getAdd());
         number.setText(patientList.get(position).getNumber());
         admit.setText(patientList.get(position).getAdmit());
         issu.setText(patientList.get(position).getIssu());
@@ -101,7 +101,7 @@ public class ListAdapter extends BaseAdapter {
 
                         String id = patientList.get(position).getId();
                         String name = patientList.get(position).getName();
-                        String add = patientList.get(position).getAdd();
+                        String _add_ = patientList.get(position).getAdd();
                         String number = patientList.get(position).getNumber();
                         String admit = patientList.get(position).getAdmit();
 
@@ -112,7 +112,7 @@ public class ListAdapter extends BaseAdapter {
                         Intent intent = new Intent(context, UpdateActivity.class);
                         intent.putExtra("id", id);
                         intent.putExtra("name", name);
-                        intent.putExtra("dept", add);
+                        intent.putExtra("_add_", _add_);
                         intent.putExtra("number", number);
                         intent.putExtra("number", admit);
                         intent.putExtra("number", issu);

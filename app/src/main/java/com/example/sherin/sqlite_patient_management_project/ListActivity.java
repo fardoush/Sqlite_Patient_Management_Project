@@ -41,13 +41,13 @@ public class ListActivity extends AppCompatActivity {
 
                 String id = cursor.getString(0);
                 String name = cursor.getString(1);
-                String add = cursor.getString(2);
+                String _add_ = cursor.getString(2);
                 String number = cursor.getString(3);
                 String admit = cursor.getString(4);
                 String issu = cursor.getString(5);
 
 
-                Patient patient = new Patient(id, name, add, number,admit,issu);
+                Patient patient = new Patient(id, name, _add_, number,admit,issu);
 
                 patientList.add(patient);
 

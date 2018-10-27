@@ -14,7 +14,7 @@ public class MySqlite extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "student_info";
     private static final String COL_ID = "id";
     private static final String COL_NAME = "name";
-    private static final String COL_ADD = "add";
+    private static final String COL_ADD = "_add_";
     private static final String COL_NUMBER = "number";
     private static final String COL_ADMIT = "admit";
     private static final String COL_ISSU = "issu";
@@ -28,12 +28,14 @@ public class MySqlite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sql = "CREATE TABLE " + TABLE_NAME + " ( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" +
-                " ,  " + COL_NAME + " TEXT , " + COL_ADD + " TEXT , " + COL_NUMBER + " TEXT,"+COL_ADMIT+"TEXT,"+COL_ISSU+" TEXT )";
+        String sql = " CREATE TABLE " + TABLE_NAME + " ( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" +
+                " ,  " + COL_NAME + " TEXT , " + COL_ADD + " TEXT , " + COL_NUMBER + " TEXT,"+COL_ADMIT +" TEXT" +
+                " ,"+ COL_ISSU +" TEXT )";
 
 
         try {
             db.execSQL(sql);
+           // onCreate(db);
             Log.i("db_info", "Table is created");
         } catch (Exception e) {
 
@@ -45,9 +47,10 @@ public class MySqlite extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         // -- drop table
-        String sql = "DROP TABLE " + TABLE_NAME + " IF EXISTS";
+        String sql = "DROP TABLE IF EXISTS " + TABLE_NAME ;
 
         try {
+            db.execSQL(sql);
             onCreate(db);
             Log.i("db_info", "Upgrade is exucuted successfully");
         } catch (Exception e) {
@@ -61,14 +64,14 @@ public class MySqlite extends SQLiteOpenHelper {
 
 
     // ---- for save into the local database
-    public long insertData(String name, String add, String number,String admit,String issu) {
+    public long insertData(String name, String _add_, String number,String admit,String issu) {
 
         SQLiteDatabase database = getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
         values.put(COL_NAME, name);
-        values.put(COL_ADD, add);
+        values.put(COL_ADD, _add_);
         values.put(COL_NUMBER, number);
         values.put(COL_ADMIT, admit);
         values.put(COL_ISSU, issu);
@@ -99,13 +102,13 @@ public class MySqlite extends SQLiteOpenHelper {
 
     }
 
-    public int updateData(String id, String name, String add, String number,String admit,String issu){
+    public int updateData(String id, String name, String _add_, String number,String admit,String issu){
 
         SQLiteDatabase database = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COL_NAME, name);
-        values.put(COL_ADD, add);
+        values.put(COL_ADD, _add_);
         values.put(COL_NUMBER, number);
         values.put(COL_ADMIT, admit);
 

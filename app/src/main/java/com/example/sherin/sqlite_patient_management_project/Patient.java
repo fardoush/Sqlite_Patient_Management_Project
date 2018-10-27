@@ -4,16 +4,16 @@ public class Patient {
 
     private String id;
     private String name;
-    private String add;
+    private String _add_;
     private String number;
     private String admit;
     private  String issu;
 
 
-    public Patient(String id, String name, String add, String number,String admit,String issu) {
+    public Patient(String id, String name, String _add_, String number,String admit,String issu) {
         this.id = id;
         this.name = name;
-        this.add = add;
+        this._add_ = _add_;
         this.number = number;
         this.admit=admit;
         this.issu=issu;
@@ -28,7 +28,7 @@ public class Patient {
     }
 
     public String getAdd() {
-        return add;
+        return _add_;
     }
 
     public String getNumber() {

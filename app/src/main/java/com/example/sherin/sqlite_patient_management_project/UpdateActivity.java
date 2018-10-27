@@ -13,7 +13,7 @@ public class UpdateActivity extends AppCompatActivity {
 
     private EditText etName, etAdd, etNumber,etAdmit,etIssu;
 
-    private String id, name, add, number,admit,issu;
+    private String id, name, _add_, number,admit,issu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class UpdateActivity extends AppCompatActivity {
 
             id = bundle.getString("id");
             name = bundle.getString("name");
-            add = bundle.getString("add");
+            _add_ = bundle.getString("_add_");
             number = bundle.getString("number");
             admit = bundle.getString("admit");
 
@@ -48,7 +48,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
         etName.setText(name);
-        etAdd.setText(add);
+        etAdd.setText(_add_);
         etNumber.setText(number);
         etAdmit.setText(admit);
         etIssu.setText(issu);
